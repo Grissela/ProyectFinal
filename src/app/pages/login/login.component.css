@@ -1,0 +1,52 @@
+
+.contenedor{
+    font-family: 'Source Sans Pro', sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.527)), url("./../.././../assets/IMG/tienda.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+}
+
+.img{
+    display: block;
+    height: 80px;
+    width: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+.contenedor__login{
+    border-radius: 10px;
+    width: 280px;
+    padding: 2rem 2rem;
+}
+.titulo{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: #6d788a;
+    text-align: center;
+    margin: 1rem 0 1.7rem 0;
+}
+.input__text{
+    background-color:  #e6e7eb;
+    padding: .5rem 0 .5rem 1rem;
+}
+
+
+.input__text::placeholder{
+    color: #a2a7af;
+}
+
+.btn:hover{
+    cursor: pointer;
+    transition: .5s;
+    transform: scale(1.05);
+}
+
+@media only screen and (min-width: 1000px){
+   .contenedor__login{
+    width: 310px;
+   }
+}

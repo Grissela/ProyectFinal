@@ -1,0 +1,20 @@
+<table class="table-auto">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Producto</th>
+        <th>Costo</th>
+        <th>Cantidad</th>
+        <th>Costo total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let datos of data" >
+        <td>{{datos.Nombre}}</td>
+        <td>{{datos.Costo}}</td>
+        <td>{{datos.Cantidad}}</td>
+        <td>{{datos.CostoTotal}}</td>
+      </tr>
+  </tbody>
+</table>
+<!-- Falta poner usuario -->

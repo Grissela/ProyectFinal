@@ -1,0 +1,47 @@
+.img{
+    background-image: url('../../../assets/IMG/fondo2.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 60vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../assets/IMG/fondo2.jpg");
+}
+.subtitle{
+    width: 200px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    padding-top: 1rem;
+    border-bottom: 7px solid orange;
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+}
+/*CONTENEDOR GENERAL*/
+.container__fruits{
+    background-color: #f6f6f9;
+    padding: 2rem 7rem 0 7rem;
+
+}
+.imagen{
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 200px;
+    object-fit: cover;
+}
+/*CARDS*/
+.container__fruit{
+    background-color: #fff;
+    border-radius: 10px;
+    width: 230px;
+    margin-bottom: 2.5rem;
+    box-shadow: 0px 10px 15px -3px rgba(119, 119, 119, 0.26);
+}
+.container__fruit:hover{
+    cursor: pointer;
+    transition: .3s;
+    transform: scale(1.06);
+}
+.fruit__description{
+    padding: 1rem;
+}

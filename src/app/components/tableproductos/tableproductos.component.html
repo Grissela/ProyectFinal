@@ -1,0 +1,26 @@
+<table class="table-auto">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Producto</th>
+        <th>Descripción</th>
+        <th>Costo</th>
+        <th>Oferta</th>
+        <th>Costo total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let datos of data" >
+        <td>{{datos.Nombre}}</td>
+        <td>{{datos.Descripcion}}</td>
+        <td>{{datos.Costo}}</td>
+        <td>{{datos.Oferta}}</td>
+        <td>{{datos.Costo}}</td>
+        <button (click)="eliminar(datos)">Eliminar</button>
+      </tr>
+    </tbody>
+  </table>
+  <div class="">
+    <button (click)="enviar()">Agregar</button>
+    
+  </div>

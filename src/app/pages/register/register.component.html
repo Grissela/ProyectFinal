@@ -1,0 +1,47 @@
+<div class="contenedor  flex justify-center ">
+    <div class="contenedor__register p-[2rem] rounded-[10px] bg-white my-5">
+        <h2 class="text-center uppercase font-semibold py-1">Formulario Registro</h2>
+        
+        <form [formGroup]="register">
+            <div class="mb-3">
+                <label class="uppercase font-bold text-xs" for="">Nombres*</label>
+                <input type="text" placeholder="Netboard"  name="Nombres" formControlName="Nombres" id="Nombres" class="input__text w-full outline-0">
+            </div>
+            
+            <div class="mb-3">
+                <label class="uppercase font-bold text-xs" for="">Apellidos*</label>
+                <input type="text" placeholder="Software Engineer" name="Apellidos" formControlName="Apellidos" id="Apellidos"  class="input__text w-full outline-0">
+            </div>
+
+            <div class="mb-3">
+                <label class="uppercase font-bold text-xs" for="">Nombre de Usuario*</label>
+                <input type="text" placeholder="Netboard" name="NombreUsuario" formControlName="NombreUsuario" id="NombreUsuario" class="input__text w-full outline-0">
+            </div>
+
+            <div class="mb-3">
+                <label class="uppercase font-bold text-xs" for="">Correo*</label>
+                <input type="email" placeholder="tucorreo@gmail.com" name="Correo" formControlName="Correo" id="Correo" class="input__text w-full outline-0">
+            </div>
+
+            <div class="mb-3">
+                <label class="uppercase font-bold text-xs" for="">Contraseña*</label>
+                <input type="password" placeholder="Password" name="Password" formControlName="Password" id="Password" class="input__text w-full outline-0 " >
+            </div>
+
+            <label class="uppercase font-bold text-xs" for="countries">Rol*</label>
+            <select name="Rol" formControlName="Rol" id="Rol"class="mb-5 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-0">
+                    
+                <option selected disabled>Selecciona un rol</option>
+                <option value="1">Usuario</option>
+                <option value="0">Administrador</option>
+                
+            </select>
+
+
+            <div class="">
+                <button type="button" class="bg-blue-700 hover:bg-blue-800 text-white font-bold w-full py-3 rounded-full" (click)="agregar()">Registrar</button>
+            </div>
+            
+        </form>
+    </div>
+</div>

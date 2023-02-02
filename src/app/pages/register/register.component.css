@@ -1,0 +1,31 @@
+
+.contenedor{
+    font-family: 'Source Sans Pro', sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.527)), url("../../../assets/IMG/tienda.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.contenedor__register{
+    width: 330px;
+    /* height: 800px; */
+}
+
+select{
+    background-color:  #e6e7eb ;
+}
+.input__text{
+    background-color:  #e6e7eb;
+    padding: .5rem 0 .5rem 1rem;
+}
+
+.input__text::placeholder{
+  font-size: .9rem;
+}
+
+@media only screen and (min-width: 1000px){
+    .contenedor__register{
+     width: 360px;
+    }
+}

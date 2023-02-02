@@ -1,0 +1,10 @@
+.logo{
+    /* box-shadow: 0 0 20px 0 gold; */
+    
+}
+.logo:hover{
+    filter: drop-shadow(0 0 10px gold);
+    cursor: pointer;
+    transition: .5s;
+    transform: scale(1.1);
+}

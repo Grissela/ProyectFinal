@@ -1,0 +1,43 @@
+.contenedor__body{
+    background-color: #212529;
+    height: 100vh;
+}
+.contenedor{
+    border-radius: 20px;
+    width: 500px;
+    padding: 1rem 2rem;
+}
+.contenedor:hover{
+    cursor: pointer;
+    transition: .5s;
+    transform: scale(1.04);
+}
+img{
+    max-width: 100%;
+    display: block;
+    width: 350px;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.contenedor__description{
+    margin-top: 1.2rem;
+    text-align: justify;
+}
+.buton{
+    text-align: right;
+}
+@media only screen and (min-width: 1000px){
+    .contenedor{
+        width: 800px;
+    }
+    .contenedor__img{
+       width: 70rem;
+    }
+    .contenedor__descriptions{
+        display: flex;
+        justify-content: space-between;
+        gap: 3rem;
+    }
+    
+}
