@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
 import { FrutasService } from 'src/app/service/frutas.service';
 import { GuardService } from 'src/app/service/guard.service';
-import { UsersService } from 'src/app/service/users.service';
+import { UsersService } from 'src/app/service/users.service';/*SERVICIO DE USUARIOS*/ 
 import Swal from 'sweetalert2'
 
 @Component({
@@ -16,13 +17,15 @@ export class RegisterComponent implements OnInit{
   public register !: FormGroup
   data:any[]=[]
 
-  constructor(private readonly Build:FormBuilder, private route:Router, public service:UsersService, private authUser:GuardService){}
+  constructor(private readonly Build:FormBuilder, private route:Router, public service:UsersService, private authUser:GuardService, private auth:AuthService){}
 
   ngOnInit(): void {
      this.register=this.initForm();
     // this.mostrar()
+    // this.agregar()
   }
 
+  // inicializar
   initForm():FormGroup{
     return this.Build.group({
       Nombres:['',[Validators.required]],
@@ -34,6 +37,7 @@ export class RegisterComponent implements OnInit{
     })
     
   }
+  // agregar al servicio usuario
   agregar(){
     console.log(this.register.value)
     console.log(this.register.value.Correo, this.register.value.Password)
@@ -47,9 +51,9 @@ export class RegisterComponent implements OnInit{
         imageHeight: 200,
         imageAlt: 'Custom image',
       })
-      this.service.addUsers(this.register.value)
-      this.authUser.enviodata(this.register.value.Correo, this.register.value.Password)
-      this.route.navigate(['login'])
+      this.service.addUsers(this.register.value)/*para registrar en la tabla usuarios*/ 
+      this.auth.enviodata(this.register.value.Correo, this.register.value.Password)/*para autentificar*/ 
+      this.route.navigate(['/login'])
     }else {
       Swal.fire({
         icon: 'warning',

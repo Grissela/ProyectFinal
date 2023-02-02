@@ -16,7 +16,7 @@ export class UsersService {
 
   }
 
-  addUsers(user:Users[]){
+  addUsers(user:Users){
     const refUsers=collection(this.firestore, 'users')
     return addDoc(refUsers, user)
   }

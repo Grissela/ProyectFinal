@@ -12,6 +12,7 @@ export class PedidosComponent implements OnInit{
   data:any[]=[]
 
   frutas!:Frutas[];
+  suma=0
   constructor( private route:Router, public service:FrutasService, public car:CarService){}
   ngOnInit(): void {
     this.mostrar()
@@ -20,6 +21,10 @@ export class PedidosComponent implements OnInit{
   mostrar(){
     this.car.getCar().subscribe (res=>{
      this.data = res
+     for(let result of this.data){
+      const suma=result.Cantidad*result.Costo
+      this.suma +=suma
+     }
     }) 
    }
 
