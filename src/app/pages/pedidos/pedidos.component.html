@@ -1,20 +1,29 @@
-<table class="table-auto">
-    <thead>
-      <tr>
-        <th>Item</th>
-        <th>Producto</th>
-        <th>Costo</th>
-        <th>Cantidad</th>
-        <th>Costo total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let datos of data" >
-        <td>{{datos.Nombre}}</td>
-        <td>{{datos.Costo}}</td>
-        <td>{{datos.Cantidad}}</td>
-        <td>{{datos.CostoTotal}}</td>
-      </tr>
-  </tbody>
-</table>
-<!-- Falta poner usuario -->
+
+<div class="contenedor__body flex justify-center">
+  <div class="contenedor__table bg-white p-5 px-[2rem] rounded-[1rem]">
+      <h2 class="font-bold text-[1.5rem] py-5">Mis pedidos</h2>
+      <table>
+          <tr class="text-center font-bolder text-[1.2rem]" >
+            <th class=" px-[2.7rem]">Item</th>
+            <th class=" px-[2.7rem]">Producto</th>
+            <th class=" px-[2.7rem]">Costo</th>
+            <th class=" px-[2.7rem]">Cantidad</th>
+            <th class=" px-[2.7rem]">Costo Total</th>
+          </tr>
+          <tr class="text-center text-[1.1rem]" *ngFor="let datos of data;let indice = index">
+              <td>{{indice+1}}</td>
+              <td>{{datos.Nombre}}</td>
+              <td>{{datos.Costo}}</td>
+              <td>{{datos.Cantidad}}</td>
+              <td>{{datos.Costo * datos.Cantidad}}</td>
+          </tr>  
+          
+
+      </table>
+      <div class=" mt-5 flex justify-end">
+          <p class="total font-bold text-[1.3rem]">Total </p>
+          <span class="font-semibold text-[1.3rem]">640</span>
+      </div>
+  </div>
+ 
+</div>

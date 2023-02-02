@@ -23,7 +23,7 @@
             <div class="fruit__description">
                 <p class="font-semibold text-center text-[1.1rem] py-2">S/. {{datos.Costo}}</p>
                 <div class="flex justify-between">
-                    <button class="bg-red-500 text-white py-2 px-3 rounded-lg hover:bg-red-600" routerLink="producto"><i class="bi bi-cart-fill px-2"></i>Add</button>
+                    <button class="bg-red-500 text-white py-2 px-3 rounded-lg hover:bg-red-600" (click)="goToDetalle(datos.Nombre)"><i class="bi bi-cart-fill px-2"></i>Add</button>
                     <button class="bg-emerald-500 text-white py-2 px-3 rounded-lg hover:bg-emerald-600" (click)="goToDetalle(datos.Nombre)">Ver más</button>
                 </div>
             </div> 

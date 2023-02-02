@@ -14,27 +14,58 @@
     </div>
     
 </div> -->
-<div class="contenedor__body  flex justify-center items-center" >
-    <div  *ngFor="let datos of data">
-        <div class="contenedor bg-white" *ngIf="(datos.Nombre) === nombre" >
-            <h2 class="title text-[2rem] font-semibold" >{{nombre}}</h2>
-    
-            <div class="contenedor__descriptions">
-                <div class="contenedor__img">
-                    <img src="{{datos.Imagen}}" alt="">
-                </div>
-                
-                <div class="contenedor__description">
-                    <p class="text-[1.1rem]">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis debitis similique ut consectetur tenetur iure itaque quaerat, et maxime id dicta, suscipit ullam optio perspiciatis culpa ab. Harum, eligendi pariatur.
-                    </p>
-                    <p  class="font-semibold text-[1.4rem] my-3">S/. {{datos.Costo}}</p>
-                    <div class="buton">
-                        <button type="button" class="text-[1.1rem] bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-5 rounded-full"><i class="bi bi-cart-fill text-[1.5rem] px-1"></i> Agregar a carrito</button>
+<div class="contenedor__body flex justify-center items-center">
+    <div class="contain w-[60%] mx-auto">
+        <div  *ngFor="let datos of data">
+            <div class="contenedor bg-white" *ngIf="(datos.Nombre) === nombre" >
+                <h2 class="title text-[2rem] font-semibold" >{{nombre}}</h2>
+        
+                <div class="contenedor__descriptions">
+                    <div class="contenedor__img">
+                        <img src="{{datos.Imagen}}" alt="">
                     </div>
                     
+                    <div class="contenedor__description">
+                        <p class="text-[1.1rem]">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis debitis similique ut consectetur tenetur iure itaque quaerat, et maxime id dicta, suscipit ullam optio perspiciatis culpa ab. Harum, eligendi pariatur.
+                        </p>
+                        <p  class="font-semibold text-[1.4rem] my-3">S/. {{datos.Costo}}</p>   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buton text-center">
+            <!-- <button type="button" data-modal-target="small-modal" data-modal-toggle="small-modal" class="text-[1.1rem] bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-5 rounded-full"><i class="bi bi-cart-fill text-[1.5rem] px-1"></i> Agregar a carrito</button> -->
+            <button data-modal-target="small-modal" data-modal-toggle="small-modal" class="block w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">
+                Agregar a carrito
+                </button>
+        </div>
+    </div>
+    
+
+</div>
+
+<!-- Small Modal -->
+<div id="small-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+    <div class="relative w-full h-full max-w-md md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-b-[1rem] shadow">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-5 rounded-t text-center">
+                <h3 class="text-[1.6rem] font-bold text-gray-900 w-full text-center">Cantidad</h3>
+                    <span class="sr-only">Close modal</span>
+                
+            </div>
+            <!-- Modal body -->
+            <div class="text-center">
+                <input type="number" class="mt-1 py-3 px-[4rem] rounded-[1rem]" [(ngModel)]="cantidad">
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="" *ngFor="let date of data">
+                <div class="flex justify-center items-center p-6 space-x-2 rounded-b text-center pb-[3.7rem]" *ngIf="(date.Nombre) === nombre">
+                    <button data-modal-hide="small-modal" type="button"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-[2.2rem] py-2.5 text-center" (click)="guardar({Nombre:date.Nombre, Cantidad:cantidad, Costo:date.Costo})">Agregar a carrito</button>
                 </div>
             </div>
         </div>
     </div>
-    
 </div>

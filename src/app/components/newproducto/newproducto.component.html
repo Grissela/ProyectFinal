@@ -1,6 +1,8 @@
-<div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+<div class="contenedor__body flex justify-center items-center">
+  <div class="form block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+    <h2 class="text-center font-bold text-[1.4rem] py-3">Formulario</h2>
     <form [formGroup]="AddProductos">
-      <div class="form-group mb-6">
+      <div class="form-group mb-4">
         <label for="Nombre" class="form-label inline-block mb-2 text-gray-700">Nombre</label>
         <input type="text" class="form-control
           block
@@ -20,7 +22,7 @@
           placeholder="Nombre del producto" name="Nombre" formControlName="Nombre">
       </div>
 
-      <div class="form-group mb-6">
+      <div class="form-group mb-4">
         <label for="Descripcion" class="form-label inline-block mb-2 text-gray-700">Descripción</label>
         <input type="text" class="form-control block
           w-full
@@ -38,7 +40,8 @@
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="Descripcion"
           placeholder="Descripcion del producto" name="Descripcion" formControlName="Descripcion">
       </div>
-      <div class="form-group mb-6">
+
+      <div class="form-group mb-4">
         <label for="Costo" class="form-label inline-block mb-2 text-gray-700">Costo</label>
         <input type="number" class="form-control block
           w-full
@@ -57,7 +60,7 @@
           placeholder="Costo del producto" name="Costo" formControlName="Costo">
       </div>
 
-      <div class="form-group mb-6">
+      <div class="form-group mb-4">
         <label for="Oferta" class="form-label inline-block mb-2 text-gray-700">Oferta</label>
         <input type="number" class="form-control block
           w-full
@@ -76,7 +79,7 @@
           placeholder="Oferta del producto" name="Oferta" formControlName="Oferta">
       </div>
 
-      <div class="form-group mb-6">
+      <div class="form-group mb-4">
         <label for="Imagen" class="form-label inline-block mb-2 text-gray-700">Imagen</label>
         <input type="text" class="form-control block
           w-full
@@ -95,7 +98,8 @@
           placeholder="Url" name="Imagen" formControlName="Imagen">
       </div>
 
-      <button type="submit" class="
+      <div class="text-center">
+        <button type="submit" class="
         px-6
         py-2.5
         bg-blue-600
@@ -111,6 +115,9 @@
         active:bg-blue-800 active:shadow-lg
         transition
         duration-150
-        ease-in-out" (click)="agregar()">Submit</button>
+        ease-in-out" (click)="agregar()">Enviar</button>
+      </div>
+      
     </form>
   </div>
+</div>

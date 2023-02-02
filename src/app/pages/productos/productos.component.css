@@ -3,6 +3,7 @@
 .container__fruits{
     background-color: #f6f6f9;
     padding: 2rem 7rem 0 7rem;
+    gap: 2rem;
 
 }
 .imagen{

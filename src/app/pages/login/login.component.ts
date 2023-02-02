@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Users } from 'src/app/interface/users';
 import { FrutasService } from 'src/app/service/frutas.service';
 import { UsersService } from 'src/app/service/users.service';
 import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-login',
@@ -14,12 +16,14 @@ export class LoginComponent  implements OnInit{
 
   public login !: FormGroup
   data:any[]=[]
+
   user:string="AD"
   pas:string="12345"
   token="true";
   username!:string;
   password!:string;
 
+  usuario!:Users[]
   constructor(private readonly Build:FormBuilder, private route:Router, public service:UsersService){}
 
   ngOnInit(): void {
@@ -41,29 +45,43 @@ export class LoginComponent  implements OnInit{
     // localStorage.setItem('user','AD');
     // localStorage.setItem('pas','12345')
 
-    // this.new_user = localStorage.getItem('user');
-    // this.new_pass = localStorage.getItem('pas');
+    this.service.getUsers().subscribe(res=>{
+      this.usuario = res
 
-    if(this.user == this.username && this.pas==this.password){
-      localStorage.setItem('logeado',this.token);
-      this.route.navigate(['login']);
-      
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Datos correctos',
-        showConfirmButton: false,
-        timer: 1500
-      })
-      
-  }else{
-    Swal.fire({
-      icon: 'error',
-      title: 'Datos Incorrectos',
-      text: 'Ingresa las credenciales correctas',
-      footer: '<a href="">¿Porqué me sale este error?</a>'
+      for(let x of this.usuario ){
+        if(x.Rol == 1){
+          
+          if(x.Correo == this.login.value.Correo && x.Password==this.login.value.Password){
+            this.route.navigate(['/'])
+          }
+        }else if(x.Rol == 0){
+          if(x.Correo == this.login.value.Correo && x.Password==this.login.value.Password){
+            this.route.navigate(['/tableprod'])
+          }
+        }
+      }
     })
-  }
+
+    // if(this.user == this.login.value.Correo && this.pas==this.login.value.Password){
+    //   localStorage.setItem('logeado',this.token);
+    //   this.route.navigate(['/tableprod']);
+      
+    //   Swal.fire({
+    //     position: 'top-end',
+    //     icon: 'success',
+    //     title: 'Datos correctos',
+    //     showConfirmButton: false,
+    //     timer: 1500
+    //   })
+      
+    // }else{
+    //   Swal.fire({
+    //     icon: 'error',
+    //     title: 'Datos Incorrectos',
+    //     text: 'Ingresa las credenciales correctas',
+    //     footer: '<a href="">¿Porqué me sale este error?</a>'
+    //   })
+    // }
 }
   agregar(){
     if(this.login.valid){

@@ -11,6 +11,7 @@ import Swal from 'sweetalert2'
 export class TableproductosComponent implements OnInit{
   data:any[]=[]
 
+  costoTotal!:number;
   frutas!:Frutas[];
   constructor( private route:Router, public service:FrutasService){}
   ngOnInit(): void {
@@ -20,6 +21,7 @@ export class TableproductosComponent implements OnInit{
   mostrar(){
     this.service.getFrutas().subscribe (res=>{
      this.data = res
+     
     }) 
    }
 

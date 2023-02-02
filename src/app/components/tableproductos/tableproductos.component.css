@@ -1,0 +1,25 @@
+
+.contenedor__body{
+    background-color: #212529;
+    
+}
+.contenedor__table{
+    margin: 2rem 0;
+    padding: 0 1.3rem;
+}
+
+th{
+    border-bottom: 4px solid pink;
+    padding: 1.5rem;
+}
+td{
+    border-bottom: 4px solid pink;
+    padding: .3rem 0;
+}
+
+span{
+    margin-right: 3.6rem;
+}
+.total{
+    margin-right: 3rem;
+}

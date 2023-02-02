@@ -13,14 +13,15 @@ export class PermisosGuard implements CanActivate {
      
     const token = sessionStorage.getItem("Token");
     if (token){
+    
       return true;
     }
-
-  alert('You don´t permissions')
-
-  this.router.navigate(['/session/login']);
-  return false
+    else{
+      alert('You don´t permissions')
+      this.router.navigate(['/login']);
+      return false
   
+    }
   }
   token():boolean{  
     return false
