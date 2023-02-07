@@ -23,25 +23,23 @@
     <button (click)="enviar()">Agregar</button>
     
   </div> -->
-
-
   
 <div class="contenedor__body flex justify-center">
-  <div class="contenedor__table bg-white p-5 px-[2rem] rounded-[1rem]">
+  <div class="contenedor__table bg-white p-5 px-[2rem] rounded-[1rem] w-[70%] mx-auto">
       <h2 class="font-bold text-[1.5rem] py-5">Productos</h2>
       <table>
-          <tr class="text-center font-bolder text-[1.2rem]" >
-            <th class=" px-[2.7rem]">Item</th>
-            <th class=" px-[2.7rem]">Producto</th>
-            <th class=" px-[2.7rem]">Descripción</th>
-            <th class=" px-[2.7rem]">Costo</th>
-            <th class=" px-[2.7rem]">Oferta</th>
-            <th class=" px-[2.7rem]"></th>
+          <tr class="text-center font-bolder text-[1.1rem]" >
+            <th class="">Item</th>
+            <th class="">Producto</th>
+            <th class="">Descripción</th>
+            <th class="">Costo</th>
+            <th class="">Oferta</th>
+            <th class=""></th>
           </tr>
-          <tr class="text-center text-[1.1rem]" *ngFor="let datos of data;let indice = index">
+          <tr class="text-center text-[.9rem]" *ngFor="let datos of data;let indice = index">
             <td>{{indice+1}}</td>
             <td>{{datos.Nombre}}</td>
-            <td>{{datos.Descripcion}}</td>
+            <td class="text-[.8rem]">{{datos.Descripcion}}</td>
             <td>{{datos.Costo}}</td>
             <td>{{datos.Oferta}}</td>
             <td>

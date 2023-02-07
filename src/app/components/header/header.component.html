@@ -1,19 +1,35 @@
 <div class="contenedor">
     <div class="w-full bg-black text-white py-3 px-4 ">
       <div class="flex justify-between px-[2rem]">
-        <div class="flex justify-between ">
+        <div class="flex justify-center items-center">
             <img src="https://i.pinimg.com/originals/f5/85/b9/f585b9e2c54ca8d026d2d21243f616f3.png" class="logo" alt="angular" width="70" height="70">
-                <div class="ml-2 mt-3">
-                    <a routerLink="" class="mr-2">Inicio</a>
-                    <a routerLink="/productos" class="mr-2">Productos</a>
-                    <a routerLink="/tableprod" class="mr-2">Agregar</a>
+            <div class="flex">
+                <a routerLink=""   class="mr-2 hover:text-orange-400">Inicio</a>
+                <a routerLink="/productos"   class="mr-2 hover:text-orange-400">Productos</a>
+                <div class="" *ngIf="rol == '0' && login">
+                    <a routerLink="/tableprod" class="mr-2 hover:text-orange-400">Agregar</a>
                 </div>
+            </div>
             
         </div>
-        <div class="flex justify-between">
-            <div class="ml-2 mt-3">
-                <button (click)="logout()" class="mr-4">Cerrar sesión</button>
-                <a>Hola, name</a>
+
+        <div class="">
+            <div class="flex mt-4">
+                <div class="" *ngIf="login, else falso">
+                    <button (click)="logout()" class="mr-4 hover:text-red-400">Cerrar sesión</button>
+                </div>
+
+                <ng-template #falso>
+                    <a routerLink="/login">Iniciar sesión</a>
+                </ng-template>
+
+                
+                <div class="" *ngIf="rol == '1' && login">
+                    <a>Hola, {{nombre}}</a>
+                </div>
+                <div class="" *ngIf="rol == '0' && login">
+                    <a>Hola, {{nombre}}</a>
+                </div>
             </div>
         </div>
        </div>

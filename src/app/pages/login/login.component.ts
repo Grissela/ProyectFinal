@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Users } from 'src/app/interface/users';
 import { AuthService } from 'src/app/service/auth.service';
 import { FrutasService } from 'src/app/service/frutas.service';
-import { GuardService } from 'src/app/service/guard.service';
 import { UsersService } from 'src/app/service/users.service';
 import Swal from 'sweetalert2'
 
@@ -36,34 +35,36 @@ export class LoginComponent  implements OnInit{
 
   initForm():FormGroup{
     return this.Build.group({
-      Nombre:['',[Validators.required]],
-      Apellidos:['',[Validators.required]],
       Correo:['',[Validators.required]],
       Password:['',[Validators.required]],
     })
   }
 
+
   validacion(){
    
-    this.service.getUsers().subscribe(res=>{
-      this.usuario = res
+    this.auth.isLogin(this.login.value)
+    this.route.navigate([''])
+    alert('Sesion correcta')
+    // this.service.getUsers().subscribe(res=>{
+    //   this.usuario = res
 
       
-      for(let x of this.usuario){
-        console.log(x.Rol)
+    //   for(let x of this.usuario){
+    //     console.log(x.Rol)
 
-        x.Rol=Number(x.Rol)
-        switch(x.Rol){
-          case 0:
-            console.log("Admin")
-            this.auth.login(this.login.value.Correo, this.login.value.Password)
-            this.route.navigate(['/tableprod'])
-            break;
-          case 1:
-            console.log("User")
-            this.auth.login(this.login.value.Correo, this.login.value.Password)
-            this.route.navigate(['/'])
-        }
+    //     x.Rol=Number(x.Rol)
+    //     switch(x.Rol){
+    //       case 0:
+    //         console.log("Admin")
+    //         // this.auth.login(this.login.value.Correo, this.login.value.Password)
+    //         this.route.navigate(['/tableprod'])
+    //         break;
+    //       case 1:
+    //         console.log("User")
+    //         // this.auth.login(this.login.value.Correo, this.login.value.Password)
+    //         this.route.navigate(['/'])
+    //     }
         // if(x.Rol == 1){
           
         //   this.auth.login(this.login.value.Correo, this.login.value.Password)
@@ -77,8 +78,8 @@ export class LoginComponent  implements OnInit{
             
           
         // }
-      }
-    })
+    //   }
+    // })
 }
   
 }

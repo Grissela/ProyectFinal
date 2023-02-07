@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarService } from 'src/app/service/car.service';
 import { FrutasService } from 'src/app/service/frutas.service';
+import { Frutas } from 'src/app/interface/frutas';
 import { Car } from 'src/app/interface/car';
 
 @Component({
@@ -13,6 +14,7 @@ export class DetalleComponent implements OnInit{
 
   nombre=""
   data:any[]=[]
+  frutas!:Frutas[];
   id = "";
   list!:any
   cantidad!:number;
@@ -21,8 +23,8 @@ export class DetalleComponent implements OnInit{
   ngOnInit(): void {
     this.nombre = String(this.route.snapshot.paramMap.get('nombre'));
     // this.mostrarpokemons()
-    this.service.getFrutas().subscribe(res=>{
-      this.data = res
+    this.service.getFrutas().subscribe(Frutas=>{
+      this.frutas = Frutas
     })
 
     // this.guardar('pera',5,10)

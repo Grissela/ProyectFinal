@@ -21,7 +21,22 @@
             </div>
             
             <div class="fruit__description">
-                <p class="font-semibold text-center text-[1.1rem] py-2">S/. {{datos.Costo}}</p>
+                <div *ngIf="datos.Oferta > 0;else per">
+                    <p [ngClass]="datos.Oferta? 'line-through text-red-500':''">{{datos.Costo|currency:'S/. '}}</p>
+                  </div>
+                  <ng-template #per>
+                    <div>
+                      <p class="text-[#981352]">{{datos.Costo |currency:'S/. '}}</p>
+                    </div>
+                    
+                  </ng-template>
+                  <div *ngIf="datos.Oferta > 0">
+                    <p class="text-blue-500 font-semibold md:text-lg">Oferta: {{datos.Costo - datos.Oferta |currency:'S/. '}}</p>
+                  </div>
+                
+                <!-- <div class="">
+                    <p class="font-semibold text-center text-[1.1rem] py-2">S/. {{datos.Costo}}</p>
+                </div> -->
                 <div class="flex justify-between">
                     <button class="bg-red-500 text-white py-2 px-3 rounded-lg hover:bg-red-600" (click)="goToDetalle(datos.Nombre)"><i class="bi bi-cart-fill px-2"></i>Add</button>
                     <button class="bg-emerald-500 text-white py-2 px-3 rounded-lg hover:bg-emerald-600" (click)="goToDetalle(datos.Nombre)">Ver más</button>
